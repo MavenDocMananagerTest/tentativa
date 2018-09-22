@@ -4,7 +4,12 @@
     </div>
     
     <div class="text-center">
-         UTFPR/MD - Tópicos Avançados em Computação
+         
     </div>
+    <div class="text-center container jumbotron-fluid">  
+        <p>UTFPR/MD - Tópicos Avançados em Computação</p>
+        
+        <p>${mensagem} - ${data}</p>
+    </div>  
 </body> 
 </html>
