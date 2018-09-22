@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.List;
 import javax.inject.Inject;
 import javax.validation.Valid;
+import org.bson.types.ObjectId;
 
 @Controller
 @Path("/doc")
@@ -36,10 +37,18 @@ public class DocumentoController {
     public void edit(String id) {
         if (id != null) {
             //Buscar o doc no banco  de dados
+            System.out.println(id);
             
             //incluir no result
 
-            System.out.println("ID>>" + id);
+            System.out.println("ID:" + id);
+            //return documentoDAO.findOne(documentoDAO.);
+            /*try {
+                //this.documentoDAO.findOneId(id, Documento);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                validator.add(new SimpleMessage("dao", "Erro ao gravar Documento"));
+            }*/
         }
         result.forwardTo(this).form();
     }
@@ -72,7 +81,7 @@ public class DocumentoController {
             this.documentoDAO.save(documento);
         } catch (Exception ex) {
             ex.printStackTrace();
-            validator.add(new SimpleMessage("dao", "Erro ao gravar Carro"));
+            validator.add(new SimpleMessage("dao", "Erro ao gravar Documento"));
         }
 
         /*        

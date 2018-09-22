@@ -11,7 +11,8 @@
         <div class="jumbotron jumbotron-fluid col-md-6">
             <h1 class="display-4">Be Welcome!</h1>
             <div>
-                <p class="lead">Trabalho de Aplicação Web - Colaboradores:</p>
+                <p class="lead">Aplicação Web</p>
+                <p class="lead">Colaboradores:</p>
                 <p class="lead">Danny</p>
                 <p class="lead">Willian</p>
             </div>
