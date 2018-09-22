@@ -27,7 +27,7 @@ public class Documento {
     static Categoria[] categoria = new Categoria[3];
     
     
-    categorio[0] = new Categoria();
+    //categoria[0] = new Categoria();
 
    
     public ObjectId getId() {

@@ -2,9 +2,14 @@ package br.edu.utfpr.md.webapp;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Path;
+
 
 @Controller
+@Path("/")
 public class PrimeiroController {
+    
+  
     
     @Get
     public void pagina1() {

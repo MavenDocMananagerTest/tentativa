@@ -30,10 +30,23 @@ public class DocumentoController {
     public void teste() {
         System.out.println("Oi cara!");
     }
-
-    @Path("/new")
+    
+    @Path(value = "{id}", priority = Path.LOW)
     @Get
+    public void edit(String id) {
+        if (id != null) {
+            //Buscar o doc no banco  de dados
+            
+            //incluir no result
+
+            System.out.println("ID>>" + id);
+        }
+        result.forwardTo(this).form();
+    }
+    
+    @Path(value = "/new", priority = Path.HIGHEST)
     public void form() {
+        
     }
 
     @Path(value = {"", "/"})
@@ -54,9 +67,6 @@ public class DocumentoController {
         System.out.println("Data: " + documento.getData());
         System.out.println("Ultima atualizacao: " + documento.getUltatualizacao());
         System.out.println("Nome: " + documento.getNome());
-        //System.out.println("Keyword: " + documento.getKeyword());
-        //System.out.println("Categoria: " + documento.getCategoria());
-        
         try {
             //this.carroDAO.insert(carro);
             this.documentoDAO.save(documento);

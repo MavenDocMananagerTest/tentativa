@@ -21,7 +21,7 @@
             <td>${doc.data}</td>
             <td>${doc.ultatualizacao}</td>
             <td>${doc.nome}</td>
-            <td></td>
+            <td><a href="edit/${doc.id}">Edit</a></td>
         </tr>
     </c:forEach>
 </table>

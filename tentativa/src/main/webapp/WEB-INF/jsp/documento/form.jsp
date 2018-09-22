@@ -1,12 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Documento</title>
-    </head>
-    <body>
+<jsp:include page="/WEB-INF/jsp/inc/cabecalho.jsp" />
         <h1>Documento (Cadastro)</h1>
 
         <c:if test="${not empty errors}">
@@ -41,5 +36,4 @@
         </div>
 
     </form>
-</body>
-</html>
+<jsp:include page="/WEB-INF/jsp/inc/rodape.jsp" />
