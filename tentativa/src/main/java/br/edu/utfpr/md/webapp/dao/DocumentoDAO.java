@@ -17,6 +17,5 @@ public class DocumentoDAO extends BasicDAO<Documento, ObjectId> {
     public Documento getById(ObjectId id) {
         return this.createQuery().field("id").equal(id).get();
     }
-
     
 }

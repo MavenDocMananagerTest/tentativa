@@ -32,26 +32,23 @@ public class DocumentoController {
         System.out.println("Oi cara!");
     }
     
-    @Path(value = "{id}", priority = Path.LOW)
+    @Path(value = "/edit/{id}", priority = Path.LOW)
     @Get
-    public void edit(String id) {
-        if (id != null) {
+    public Documento edit(String _id) {
+        ObjectId objectId = new ObjectId(_id);
+        System.out.println(_id);
+        if (_id != null) {
             //Buscar o doc no banco  de dados
-            System.out.println(id);
+            System.out.println(_id);
             
             //incluir no result
 
-            System.out.println("ID:" + id);
-            //return documentoDAO.findOne(documentoDAO.);
-            /*try {
-                //this.documentoDAO.findOneId(id, Documento);
-            } catch (Exception ex) {
-                ex.printStackTrace();
-                validator.add(new SimpleMessage("dao", "Erro ao gravar Documento"));
-            }*/
+            System.out.println("ID:" + _id);
+            return documentoDAO.getById(objectId);
         }
-        result.forwardTo(this).form();
+        return documentoDAO.getById(objectId);
     }
+    
     
     @Path(value = "/new", priority = Path.HIGHEST)
     public void form() {
@@ -63,9 +60,6 @@ public class DocumentoController {
     public List<Documento> list() {
         result.include("mensagem", "Esta é uma mensagem qualquer");
         result.include("data", new Date());
-
-        // Buscando os carros do banco de dados
-        //return carroDAO.getAll();
         return documentoDAO.find().asList();
     }
 
@@ -77,23 +71,11 @@ public class DocumentoController {
         System.out.println("Ultima atualizacao: " + documento.getUltatualizacao());
         System.out.println("Nome: " + documento.getNome());
         try {
-            //this.carroDAO.insert(carro);
             this.documentoDAO.save(documento);
         } catch (Exception ex) {
             ex.printStackTrace();
             validator.add(new SimpleMessage("dao", "Erro ao gravar Documento"));
         }
-
-        /*        
-        if(carro.getMarca() == null || carro.getMarca().isEmpty()) {
-            validator.add(new SimpleMessage("carro.marca", "Marca está vazia!"));
-        }
-        if(carro.getModelo() == null || carro.getModelo().isEmpty()) {
-            validator.add(new SimpleMessage("carro.modelo", "Modelo está vazio!"));
-        }
-         */
-        //Cadastrar no banco de dados....
-        //Redirecionamento
         result.redirectTo(this).list();
     }
 

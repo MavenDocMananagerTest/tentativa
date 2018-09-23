@@ -14,7 +14,7 @@
             <th scope="col">Nome</th>
             <th scope="col"></th>
         </tr>
-        <c:forEach items="${documentoList}" var="doc">
+        <c:forEach items="${documento}" var="doc">
             <tr>
                 <td>${doc.descricao}</td>
                 <td>${doc.data}</td>
@@ -25,6 +25,7 @@
         </c:forEach>
     </table>
 </div>
+
 <jsp:include  page="/WEB-INF/jsp/inc/rodape.jsp" />
 
 
