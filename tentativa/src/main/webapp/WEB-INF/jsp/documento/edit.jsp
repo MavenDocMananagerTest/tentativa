@@ -14,10 +14,14 @@
         </ul>
     </c:if>
     <div class="container jumbotron-fluid col-md-9">
-        <form action="${linkTo[DocumentoController].saveFromEdit}" method="POST">
+        <form action="${linkTo[DocumentoController].save}" method="POST">
+            <div class="form-group">
+                <label >ID</label>
+                <input type="text" class="form-control" value=${documento.id} name="documento.id" readonly="readonly" />
+            </div>  
             <div class="form-group">
                 <label >Descricao</label>
-                <input type="text" class="form-control" value=${documento.descricao} name="documento.descricao" />
+                <input type="text" class="form-control" value=""${documento.descricao}" name="documento.descricao" />
             </div>    
             <div class="form-row">
                 <div class="form-group col-md-6">

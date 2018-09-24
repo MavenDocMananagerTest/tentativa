@@ -6,7 +6,6 @@ import javax.validation.constraints.NotNull;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
-import org.mongodb.morphia.annotations.Reference;
 
 @Entity
 public class Documento {
@@ -25,11 +24,8 @@ public class Documento {
 
     //@Reference
     static Categoria[] categoria = new Categoria[3];
-    
-    
-    //categoria[0] = new Categoria();
 
-   
+    //categoria[0] = new Categoria();
     public ObjectId getId() {
         return id;
     }
