@@ -14,8 +14,8 @@ public class DocumentoDAO extends BasicDAO<Documento, ObjectId> {
         super(Documento.class, mongoClient, new Morphia(), MongoClientProvider.DATABASE);
     }
 
-    public Documento getById(ObjectId id) {
-        return this.createQuery().field("id").equal(id).get();
+    public Documento getById(String id) {
+        return this.createQuery().field("_id").equal(id).get();
     }
     
 }
