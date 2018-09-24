@@ -35,7 +35,7 @@ public class DocumentoController {
     
     @Path(value = "/{_id}", priority = Path.LOW)
     @Get
-    public Documento edit(String _id) {
+   public Documento edit(String _id) {
         result.include("mensagem", "Esta é uma mensagem qualquer");
         result.include("data", new Date());
         
@@ -83,12 +83,10 @@ public class DocumentoController {
         result.include("data", new Date());
         return documentoDAO.find().asList();
     }
-   
-    @Path(value = {"/{_id}"})
+
     @Post
-    public void saveFromEdit(Documento documento) {
+    public void save(@Valid Documento documento) {
         validator.onErrorForwardTo(this).form();
-        System.out.println("ID: " + _id);
         System.out.println("Descricao: " + documento.getDescricao());
         System.out.println("Data: " + documento.getData());
         System.out.println("Ultima atualizacao: " + documento.getUltatualizacao());
@@ -101,14 +99,20 @@ public class DocumentoController {
         }
         result.redirectTo(this).list();
     }
+    @Path(value = "/id={_id}")
     @Post
-    public void save(@Valid Documento documento) {
+    public void saveFromEdit(Documento documento,String _id) {
         validator.onErrorForwardTo(this).form();
+
         System.out.println("Descricao: " + documento.getDescricao());
         System.out.println("Data: " + documento.getData());
         System.out.println("Ultima atualizacao: " + documento.getUltatualizacao());
         System.out.println("Nome: " + documento.getNome());
+        
         try {
+            System.out.println("ID: " + _id);
+            ObjectId objectId = new ObjectId(_id);
+            this.documentoDAO.deleteById(objectId);
             this.documentoDAO.save(documento);
         } catch (Exception ex) {
             ex.printStackTrace();

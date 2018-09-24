@@ -34,7 +34,7 @@
                         <input type="text" class="form-control" name="documento.nome"/>
                     </div>
 
-                    <button type="submit" class="btn btn-primary mb-2">Gravar</button>
+                    <button type="submit" class="btn btn-primary mb-2" href="doc/${doc.id}">Gravar</button>
                 </form>
             </div>       
         </div>
